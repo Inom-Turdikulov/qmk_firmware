@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Function layer
     [_LAYER1] = LAYOUT(RGB_TOG, RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW, RGB_M_SN, RGB_M_K, RGB_M_X, RGB_M_G, RGB_M_T, KC_TRNS, KC_TRNS, KC_NO, RGB_SPI, RGB_SPD, KC_TRNS,
-                       KC_TRNS, KC_NO, KC_NO, KC_NO, KC_END, KC_NO, KC_HOME, RGB_MOD, RGB_RMOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,
+                       KC_TRNS, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5), LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,
                        KC_TRNS, KC_TRNS, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_NO, KC_DOWN, KC_RGHT, KC_PGUP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPRV,
                        KC_TRNS, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MNXT,
                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PGDN, KC_NO, KC_NO, KC_UP, KC_LEFT, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MRWD,
@@ -56,3 +56,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        KC_LSFT, KC_LSFT, KC_Z, KC_X, KC_C, KC_K, KC_B, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_RSFT, KC_NO,
                        KC_LCTL, KC_NO, KC_LALT, KC_SPC, KC_SPC, KC_SPC, KC_RALT, KC_NO, KC_APP, KC_RCTL, KC_TRNS, KC_NO),
 };
+
+// Seend Esc on pressing Ctrl+[ and releasing both keys
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_LBRC:
+            if (record->event.pressed) {
+                if (get_mods() & MOD_BIT(KC_LCTL)) {
+                    // Remove modifers and send Esc
+                    del_mods(MOD_BIT(KC_LCTL));
+                    // send ESC onse
+                    register_code(KC_ESC);
+                    unregister_code(KC_ESC);
+                } else {
+                    register_code(KC_LBRC);
+                }
+            }
+            return false;
+    }
+    return true;
+}
