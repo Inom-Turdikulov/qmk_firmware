@@ -38,16 +38,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        KC_TAB,  KC_Q,       KC_W,       KC_E,          KC_R,       KC_T,        KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,         KC_BSLS, KC_VOLU,
                        KC_LCTL, KC_A,       KC_S,       KC_D,          KC_F,       KC_G,        KC_H,       KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,    RCTL_T(KC_ENT),  KC_VOLD,
                        SC_LSPO, SC_LSPO,    KC_Z,       KC_X,          KC_C,       KC_V,        KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SC_RSPC,         SC_RSPC, KC_MPLY,
-                       KC_APP,  KC_LGUI,    KC_LALT,    KC_SPC,        KC_SPC,     KC_SPC,      MO(1),      KC_RCTL,    KC_LALT,    KC_NO,      KC_NO,      KC_NO),
+                       KC_APP,  KC_LGUI,    KC_LALT,    KC_SPC,        KC_SPC,     KC_SPC,      MO(2),      KC_RCTL,    KC_LALT,    TG(1),      KC_PGUP,      KC_PGDN),
+
+    //                    1       2           3           4              5           6            7         8             9           10          11          12          13               14       15       16
+    [_LAYER1] = LAYOUT(KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,
+                       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,
+                       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_F,          KC_P,       KC_B,        KC_J,       KC_L,       KC_U,       KC_Y,       KC_SCLN,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_TRNS,
+                       KC_TRNS, KC_TRNS,    KC_R,       KC_S,          KC_T,       KC_G,        KC_M,       KC_N,       KC_E,       KC_I,       KC_O,       KC_TRNS,    KC_TRNS,         KC_TRNS,
+                       KC_TRNS, KC_TRNS,    KC_X,       KC_C,          KC_D,       KC_V,        KC_Z,       KC_K,       KC_H,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_TRNS,
+                       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS),
 
     // Function layer 1
     //                    1        2           3           4              5           6           7           8           9           10         11          12          13                14       15      16
-    [_LAYER1] = LAYOUT(RGB_TOG, KC_P1,      KC_P2,      KC_P3,         KC_P4,      KC_P5,       KC_P6,      KC_P7,      KC_P8,      KC_P9,      KC_P0,      KC_PAST,    KC_PPLS,         RGB_SPI, RGB_SPD, KC_TRNS,
+    [_LAYER2] = LAYOUT(RGB_TOG, KC_P1,      KC_P2,      KC_P3,         KC_P4,      KC_P5,       KC_P6,      KC_P7,      KC_P8,      KC_P9,      KC_P0,      KC_PAST,    KC_PPLS,         RGB_SPI, RGB_SPD, KC_TRNS,
                        KC_TRNS, RGUI(KC_1), LGUI(KC_2), LGUI(KC_3),    LGUI(KC_4), LGUI(KC_5),  LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), KC_PMNS,    KC_PEQL,         KC_DEL,  RGB_VAD, KC_TRNS,
-                       KC_PGUP, KC_HOME,    KC_BTN1,    KC_UP,         KC_BTN2,    KC_TRNS,     LCTL(KC_C), KC_TRNS,    KC_BTN1,    KC_MS_U,    KC_BTN3,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_MPRV,
-                       KC_PGDN,  KC_END,     KC_LEFT,    KC_DOWN,       KC_RIGHT,   KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_MS_L,    KC_MS_D,    KC_MS_R,    KC_TRNS,    KC_TRNS,         KC_MNXT,
+                       KC_PGUP, KC_HOME,    KC_BTN1,    KC_UP,         KC_BTN2,    KC_TRNS,     LCTL(KC_C), KC_WH_U,    KC_BTN1,    KC_MS_U,    KC_BTN3,    KC_TRNS,    KC_TRNS,         KC_TRNS, KC_MPRV,
+                       KC_PGDN, KC_END,     KC_LEFT,    KC_DOWN,       KC_RIGHT,   KC_TRNS,     KC_TRNS,    KC_WH_D,    KC_MS_L,    KC_MS_D,    KC_MS_R,    KC_TRNS,    KC_TRNS,         KC_MNXT,
                        KC_INS,  KC_TRNS,    KC_TRNS,    LCTL(KC_X),    KC_PGDN,    KC_TRNS,     KC_NO,      KC_TRNS,    KC_TRNS,    KC_PCMM,    KC_PDOT,    KC_PSLS,    KC_TRNS,         KC_TRNS, KC_MRWD,
-                       KC_NUM,  KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_MFFD),
+                       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS),
 };
 
 // Initialize variable holding the binary
@@ -61,3 +69,15 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &vim_escape_map,
     NULL // Null terminate the array of overrides!
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _LAYER1:
+            rgblight_enable();
+            break;
+        default: // for any other layers, or the default layer
+            rgblight_disable();
+            break;
+    }
+  return state;
+}
